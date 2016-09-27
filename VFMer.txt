@@ -1,0 +1,9 @@
+<apex:page controller="QueryList">
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!Trainingen}" var="o">
+            <apex:column value="{!o.id}"/>
+            <apex:column value="{!o.name}"/>
+            apex:column value="{!o}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

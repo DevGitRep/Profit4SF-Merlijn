@@ -1,0 +1,19 @@
+public with sharing class QueryList {
+    // ApexPages.StandardSetController must be instantiated
+    // for standard list controllers
+    public ApexPages.StandardSetController setCon {
+        get {
+            if(setCon == null) {
+                setCon = new ApexPages.StandardSetController(Database.getQueryLocator(
+                    [SELECT Training__c.Name , (SELECT Trainer__c FROM Trainers__r) FROM Training__c]));
+            }
+            return setCon;
+        }
+        set;
+    }
+
+    // Initialize setCon and return a list of records
+    public List<Training__c> getTrainingen() {
+        return (List<Training__c>) setCon.getRecords();
+    }
+}
